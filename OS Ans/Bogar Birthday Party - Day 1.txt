@@ -1,0 +1,61 @@
+#include <iostream>
+#include<string.h>
+#include<iomanip>
+using namespace std;
+int main() {
+	int n;
+  cin>>n;
+  string str[n+1];
+  int i;
+  float a[n];
+  float b[n];
+  for(i=0;i<n+1;i++)
+      getline(cin,str[i]);
+  for(i=0;i<n;i++)
+    cin>>a[i];
+  for(i=0;i<n;i++)
+    cin>>b[i];
+ /*for(i=0;i<n+1;i++)
+   cout<<str[i]<<endl;
+  
+  for(i=0;i<n;i++)
+    cout<<a[i]<<" ";
+  cout<<endl;
+  
+  for(i=0;i<n;i++)
+    cout<<b[i]<<" ";
+  cout<<endl;*/
+  int w_start=0;
+  float w_sum=0;
+  cout<<"Waiting Time"<<endl;
+  for(i=0;i<n;i++)
+  {
+    cout<<"Time Taken for "<<str[i+1]<<"="<<w_start<<endl;
+    w_sum+=w_start;
+    w_start+=a[i];
+  
+  }
+  //cout<<w_sum<<endl;
+  double w_avg=w_sum/n;
+  
+  cout<<"Average Waiting Time="<<fixed<<setprecision(6)<<w_avg<<endl;
+  int t_start=a[0];
+  float t_sum=0;
+  cout<<"TurnAround Time"<<endl;
+  for(i=0;i<n;i++)
+  {
+    cout<<"Time Taken for "<<str[i+1]<<"="<<t_start<<endl;
+    t_sum+=t_start;
+    t_start+=a[i+1];
+  
+  }
+   //cout<<t_sum<<endl;
+  double t_avg=t_sum/n;
+  
+  cout<<"Average TurnAround Time="<<fixed<<setprecision(6)<<t_avg<<endl;
+  
+  
+	return 0;
+}
+
+//rrn

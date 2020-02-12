@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int s1=0,s=0,i,n,a[20],b[20];
+  cin>>n;
+  for(i=0;i<n;i++)
+  {
+    cin>>a[i];
+  }
+  b[0] = a[0];
+  for(i=1;i<n;i++)
+  {
+    b[i] = b[i-1]+a[i];
+  }
+  
+  for(i=0;i<n;i++)
+  {
+    s = s + b[i];
+  }
+  s = s/n;
+  for(i=0;i<n-1;i++)
+  {
+    s1 = s1 + b[i];
+  }
+  s1 = s1/n;
+  cout<<"Average Waiting Time:"<<s1<<"\n";
+  cout<<"Average Turnaround Time:"<<s;
+	return 0;
+}
+
+//rrn
