@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int i,n;
+  cin>>n;
+  for(i=0;i<n;i++)
+  {
+    cout<<"Processing "<<i+1<<"!"<<endl;
+  }
+  if(n==1)
+  {
+  cout<<endl;
+  }
+    for(i=0;i<n;i++)
+  {
+    cout<<"Process "<<i+1<<" Enters Critical section"<<endl;
+    cout<<"Process "<<i+1<<" Leaves Critical section"<<endl;
+  }
+	return 0;
+}
+
+//rrn
+//https://github.com/CrazyCoder009/OSLab_Ans
