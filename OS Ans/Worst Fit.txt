@@ -1,12 +1,11 @@
 #include<stdio.h>
- 
 int main()
 {
-      static int block_arr[10], file_arr[10];
       int fragments[10], blocks[10], files[10];
-      int m, n, number_of_blocks, number_of_files, temp;
-      scanf("%d", &number_of_blocks);
-      scanf("%d", &number_of_files);
+      int m, n, number_of_blocks, number_of_files, temp, top = 0;
+      static int block_arr[10], file_arr[10];
+      scanf("%d",&number_of_blocks);
+      scanf("%d",&number_of_files);
       for(m = 0; m < number_of_blocks; m++) 
       {
             scanf("%d", &blocks[m]);
@@ -24,24 +23,26 @@ int main()
                         temp = blocks[n] - files[m];
                         if(temp >= 0)
                         {
-                              file_arr[m] = n;
-                              break;
-                        }
+                              if(top < temp)
+                              {
+                                    file_arr[m] = n;
+                                    top = temp;
+                              }
+                        } 
                   }
-            }
-            fragments[m] = temp;
-            block_arr[file_arr[m]] = 1;
+                  fragments[m] = top;
+                  block_arr[file_arr[m]] = 1;
+                  top = 0;
+            }   
       }
-  printf("File Number Block Number File Size Block Size Fragment");
+  printf("File Number File Size Block Number Block Size Fragment");
       for(m = 0; m < number_of_files; m++)
       {
-            printf("\n%d %d %d %d %d", m, file_arr[m], files[m], blocks[file_arr[m]], fragments[m]);
+            printf("\n%d %d %d %d %d", m, files[m], file_arr[m], blocks[file_arr[m]], fragments[m]);
       }
       printf("\n");
       return 0;
 }
-
-
 
 
 //rrn
