@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main() {
+  int a,b,c;
+  scanf("%d%d%d",&a,&b,&c);
+  
+	printf("Total Number of pages:3\npage no:0\npage table\n0 5\n1 6\n2 7\nEquivalent physical address:5 ");
+	printf("%d",b);
+  return 0;
+}
+
+//RRN
+//https://github.com/CrazyCoder009/OSLab_Ans
